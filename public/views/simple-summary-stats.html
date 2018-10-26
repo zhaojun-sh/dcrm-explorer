@@ -1,16 +1,31 @@
-<div class="row" style="margin-top:10px;margin-bottom:10px;">
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<div class="row" style="margin:10px;">
+<table class="tblsummary">
+<tr>
+<th><img src="img/icon_1.svg" alt="" />Block Height
+</th>
+<th><img src="img/icon_2.svg" alt="" />Block Time
+</th>
+<th><img src="img/icon_3.svg" alt="" />Price
+</th>
+<th><img src="img/icon_4.svg" alt="" />Transactions
+</th>
+</tr>
+<tr>
+<td><span data-counter="counterup" data-value="stats.blockHeight">{{stats.blockHeight | number: 0 }}</span></td>
+<td><span data-counter="counterup" data-value="stats.blockTime">{{stats.blockTime | number: 2}} s</span></td>
+<td><span data-counter="counterup" data-value="stats.usdFsn">$ {{stats.usdFsn}}</span></td>
+<td><span data-counter="counterup" data-value="stats.txns">{{stats.txns}}</span></td>
+</tr>
+</table>
+    <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="dashboard-stat2 ">
             <div class="display">
-                <div class="icon">
-                    <i class="fa fa-cube"></i>
-                </div>
                 <div class="number">
+                <small><img src="img/icon_1.png" alt="" />Block Height</small>
                     <h3>
-                    <small>#</small>
                         <span data-counter="counterup" data-value="stats.blockHeight">{{stats.blockHeight | number: 0 }}</span>
                     </h3>
-                    <small>Block Height</small>
+                    
                 </div>
             </div>
         </div>
@@ -18,14 +33,12 @@
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="dashboard-stat2 ">
             <div class="display">
-                <div class="icon">
-                    <i class="fa fa-hourglass-half"></i>
-                </div>
                 <div class="number">
+                 <small><img src="img/icon_2.png" alt="" />Block Time</small>
                     <h3>
                         <span data-counter="counterup" data-value="stats.blockTime">{{stats.blockTime | number: 2}} s</span>
                     </h3>
-                    <small>Block Time</small>
+                   
                 </div>
             </div>
         </div>
@@ -33,14 +46,12 @@
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="dashboard-stat2 ">
             <div class="display">
-                <div class="icon">
-                    <i class="fa fa-tachometer"></i>
-                </div>
                 <div class="number">
+                <small><img src="img/icon_3.png" alt="" />Price</small>
                     <h3>
-                        <span data-counter="counterup" data-value="stats.hashrate">{{stats.hashrate | totalDifficulty}}/s</span>
+                        <span data-counter="counterup" data-value="stats.hashrate">$ {{stats.usdFsn}}</span>
                     </h3>
-                    <small>Network Hashrate</small>
+                    
                 </div>
             </div>
         </div>
@@ -48,16 +59,14 @@
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="dashboard-stat2 ">
             <div class="display">
-                <div class="icon">
-                    <i class="icon-puzzle"></i>
-                </div>
                 <div class="number">
+                <small><img src="img/icon_4.png" alt="" />Transactions</small>
                     <h3>
                         <span data-counter="counterup" data-value="stats.difficulty">{{stats.difficulty | totalDifficulty}}</span>
                     </h3>
-                    <small>DIFFICULTY</small>
+                    
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>

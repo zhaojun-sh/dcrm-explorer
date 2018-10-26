@@ -44,23 +44,41 @@ angular.module('BlocksApp').controller('HomeController', function($rootScope, $s
     link: function(scope, elem, attrs){
       scope.stats = {};
       var statsURL = "/web3relay";
+
+      var fsnPriceURL = "https://api.coinmarketcap.com/v1/ticker/fusion/";
+
+      scope.stats.usdEth = 1;
+
       $http.post(statsURL, {"action": "hashrate"})
        .then(function(res){
           scope.stats.hashrate = res.data.hashrate;
           scope.stats.difficulty = res.data.difficulty;
           scope.stats.blockHeight = res.data.blockHeight;
           scope.stats.blockTime = res.data.blockTime;
-          //console.log(res);
-	});
+          //console.log(res.data);
+	    });
+
+       $http.post("/stats", {"action": "txns"})
+        .then(function(res) {
+          console.log(res.data);
+          
+          scope.stats.txns=res.data[2].txns;
+        });
+
+       $http.get(fsnPriceURL)
+       .then(function(res){
+          scope.stats.usdFsn = parseFloat(res.data[0]["price_usd"]).toFixed(2);
+          scope.stats.usdFsnEth = parseInt(100*scope.stats.usdFsn/scope.stats.usdEth);
+        });
       }
   }
 })
-.directive('siteNotes', function() {
-  return {
-    restrict: 'E',
-    templateUrl: '/views/site-notes.html'
-  }
-})
+// .directive('siteNotes', function() {
+//   return {
+//     restrict: 'E',
+//     templateUrl: '/views/site-notes.html'
+//   }
+// })
 //OLD CODE DONT USE
 .directive('summaryStats', function($http) {
   return {

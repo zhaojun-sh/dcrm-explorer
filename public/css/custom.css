@@ -1,8 +1,53 @@
 div.page-logo {overflow: visible;}
 img.logo-default {
     max-height: 150px;
-    height: 100px;
+    width: 290px;
+    margin-top: 40px;
+    /*height: 28px;*/
 }
+.tblsummary{font-family:'Microsoft YaHei', verdana,arial,sans-serif;
+    width: 100%;
+   
+    color:#333333;
+    border-width: 1px;
+    border-color: #dfdfdf;
+    border-collapse: collapse;}
+.tblsummary th{border-width: 1px;
+    font-weight: normal;
+     font-size:14px;
+    color:#999999;
+    width: 25%;
+    vertical-align: middle;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-style: solid;
+    border-color: #dfdfdf;
+    background-color: #f7f7f7;}
+    .tblsummary th img{
+        margin-right: 4px;
+        width: 18px;
+    }
+    .tblsummary td{
+            width: 25%;
+                height: 60px;
+    line-height: 60px;
+    text-align: center;
+            border-width: 1px;
+    border-style: solid;
+    border-color: #dfdfdf;
+    background-color: #ffffff;
+    font-weight: bolder;
+     font-size:20px;
+    }
+#footer .footer{ text-align: center;line-height: 50px;}
+.copyright{display: inline-block;margin: 0 10px 0 10px;font-weight: bolder;}
+.logo{display: inline-block; width: 120px; float: left;}
+.smicon img,.logo img{width: 100%;}
+.smicon{display: inline-block; float: right; width: 30px;margin:0 0 0 10px;}
+
+#explorerSearch{border: none;border-right: 1px solid #dfdfdf;}
+.search-form>.input-group{border: 1px solid #dfdfdf;}
 .create{background-color:#36c6d3}
 .truncate-txhash, .truncate-addrhash{
     white-space:nowrap; 
