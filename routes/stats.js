@@ -14,8 +14,8 @@ try {
   config = require('../config.json');
 } catch(e) {
   if (e.code == 'MODULE_NOT_FOUND') {
-    console.log('No config file found. Using default configuration... (tools/config.json)');
-    config = require('../tools/config.json');
+    console.log('No config file found. Using default configuration... (config.example.json)');
+    config = require('../config.example.json');
   } else {
     throw e;
     process.exit(1);
@@ -191,25 +191,33 @@ var getTxStats = function(req, res) {
   });
   var mod = mods[i];
    var timebefore = parseInt((new Date()).getTime() / 1000) - range;
-  timebefore -= timebefore % mod;
+   console.log("测试")
+   console.log(timebefore)
+   timebefore2= timebefore -= timebefore % mod;
+  timebefore=0
+  console.log(timebefore)
+  console.log(mod)
   Transaction.aggregate([{
     $match: {
       timestamp: {
         $gte: timebefore
       }
     }
-  }, {
+  }, 
+  {
     $group: {
-      _id: {
-        timestamp: {
-          $subtract: [ '$timestamp', { $mod: [ '$timestamp', mod ] } ]
-        }
-      },
+      _id: null,
+      // {
+      //   timestamp: {
+      //     $subtract: [ '$timestamp', { $mod: [ '$timestamp', mod ] } ]
+      //   }
+      // },
       timestamp: { $min: '$timestamp' },
       txns: { $sum: 1 },
       amount: { $sum: '$value' }
     }
-  }, {
+  },
+   {
     $project: {
       "_id": 0,
       "timestamp": 1,
@@ -225,6 +233,8 @@ var getTxStats = function(req, res) {
       res.end();
     }
   });
+  // console.log("测试：")
+  // console.log(Transaction.aggregate)
 }
 
 /**

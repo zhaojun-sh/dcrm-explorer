@@ -60,9 +60,11 @@ angular.module('BlocksApp').controller('HomeController', function($rootScope, $s
 
        $http.post("/stats", {"action": "txns"})
         .then(function(res) {
-          console.log(res.data);
-          
-          scope.stats.txns=res.data[2].txns;
+          if(res.data[0].txns>99999){
+            scope.stats.txns=(res.data[0].txns/1000000).toFixed(2)+"M";
+          }else{
+            scope.stats.txns=res.data[0].txns;
+          }
         });
 
        $http.get(fsnPriceURL)
